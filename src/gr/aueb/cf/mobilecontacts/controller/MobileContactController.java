@@ -29,7 +29,7 @@ public class MobileContactController {
             // Validate input data
             String errorVector = ValidationUtil.validateDTO(insertDTO);
             if (!errorVector.isEmpty()) {
-                return "Error." + "Validation Erron \n" + errorVector;
+                return "Error.\n" + "Validation Erron \n" + errorVector;
             }
 
             // if Validation  is ok, insert contact
@@ -37,7 +37,7 @@ public class MobileContactController {
             readOnlyDTO = Mapper.mapMobileContactToDTO(mobileContact);
             return "OK\n" + Serializer.serializerDTO(readOnlyDTO);
         } catch (PhoneNumberAlreadyExistsException e){
-            return "Error\n" + e.getMessage() + "\n";
+            return "Error.\n" + e.getMessage() + "\n";
         }
     }
 
@@ -67,7 +67,7 @@ public class MobileContactController {
             service.deleteContactById(id);
             return "Ok\n Η επαφή διαγράφηκε";
         } catch (ContactNotFoundException e) {
-            return "Error. \n Λάθος κατά την διαγραφή , η επαφή δεν βρέθηκε";
+            return "Error.\n" + "Λάθος κατά την διαγραφή , η επαφή δεν βρέθηκε";
         }
     }
 
@@ -79,7 +79,7 @@ public class MobileContactController {
             readOnlyDTO = Mapper.mapMobileContactToDTO(mobileContact);
             return "Ok\n" + Serializer.serializerDTO(readOnlyDTO);
         } catch (ContactNotFoundException e) {
-            return "Error. \n H επαφή δεν βρέθηκε \n";
+            return "Error.\n" +"H επαφή δεν βρέθηκε \n";
         }
     }
 
@@ -108,7 +108,7 @@ public class MobileContactController {
             readOnlyDTO = Mapper.mapMobileContactToDTO(mobileContact);
             return "Ok\n" + Serializer.serializerDTO(readOnlyDTO);
         } catch (ContactNotFoundException e) {
-            return "Error. \n H επαφή δεν βρέθηκε \n";
+            return "Error.\n" + "H επαφή δεν βρέθηκε \n";
         }
     }
 
